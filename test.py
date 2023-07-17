@@ -9,7 +9,7 @@ def sendVideo(fileName):
     originPath = os.path.join('origin',fileName)
     file = {'file': open(originPath, 'rb')}
     response = requests.post(BASE + 'video/'+fileName, files=file)
-    print(response)
+    print(response.text)
 
 #teste get Video processed
 def getVideo(fileNameFinal):
@@ -37,8 +37,29 @@ def deleteVideo(fileName):
     response = requests.delete(BASE + "video/" + fileName)
     print (response)
 
-#sendVideo('teste.webm')
-#getVideo('teste.avi')
-#getJson('teste.webm','teste_keypoints.json')
-#deleteJson('teste.webm')
-deleteVideo('teste.webm')
+def testingMenu():
+    while True:
+        print("""
+            1- sendVideo
+            2- getVideo
+            3- getJson
+            4- deleteJson
+            5-deleteVideo
+            0-sair""")
+        value = input("Please enter something: ")
+        if value == "1":
+            sendVideo('teste.webm')
+        elif value == "2":
+            getVideo('teste.avi')
+        elif value == "3":
+            getJson('teste.webm','teste_keypoints.json')
+        elif value == "4":
+            deleteJson('teste.webm')
+        elif value == "5":
+            deleteVideo('teste.webm')
+        elif value == "0":
+            break
+        else:
+            print("values between 0 and 5")
+
+testingMenu()

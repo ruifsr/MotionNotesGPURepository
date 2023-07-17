@@ -2,3 +2,5 @@
 *.rar
 openpose
 models
+destination/old/teste/teste_000000000000_keypoints.json
+*.json
